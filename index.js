@@ -80,14 +80,14 @@ app.post("/api/notes", (request, response) => {
   response.status(201).json(newNote);
 });
 
-// app.use((request, response) => {
-//   console.log(request.path);
-//   response.status(404).json({
-//     error: "Not Found",
-//   });
-// });
+app.use((request, response) => {
+  // console.log(request.path);
+  response.status(404).json({
+    error: "Not Found",
+  });
+});
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
